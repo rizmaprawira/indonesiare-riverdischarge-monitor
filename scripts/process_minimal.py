@@ -5,10 +5,12 @@ Generates: metadata, layers, points, series, rankings, grids
 """
 
 import json
-import os
+from collections import defaultdict
 from datetime import datetime, timezone
 from pathlib import Path
 import numpy as np
+from shapely.geometry import Point, shape
+from shapely.prepared import prep
 
 try:
     import xarray as xr
@@ -19,57 +21,106 @@ except ImportError:
 PROJECT_ROOT = Path(__file__).parent.parent
 NC_FILE = PROJECT_ROOT / "data_20-29march2026.nc"
 OUTPUT_DIR = PROJECT_ROOT / "public" / "data" / "latest"
+BOUNDARY_FILE = OUTPUT_DIR / "boundaries" / "provinces.geojson"
 
-# Province bounding boxes (simplified)
-PROVINCES = {
-    "Aceh": {"lat_min": 2.0, "lat_max": 6.0, "lon_min": 95.0, "lon_max": 98.5},
-    "Sumatera Utara": {"lat_min": 1.0, "lat_max": 4.5, "lon_min": 97.0, "lon_max": 100.5},
-    "Sumatera Barat": {"lat_min": -3.5, "lat_max": 1.5, "lon_min": 98.5, "lon_max": 102.0},
-    "Riau": {"lat_min": -1.0, "lat_max": 2.5, "lon_min": 100.0, "lon_max": 105.0},
-    "Jambi": {"lat_min": -3.0, "lat_max": 0.0, "lon_min": 101.0, "lon_max": 105.0},
-    "Sumatera Selatan": {"lat_min": -5.0, "lat_max": -1.5, "lon_min": 102.0, "lon_max": 106.5},
-    "Bengkulu": {"lat_min": -5.5, "lat_max": -2.0, "lon_min": 101.0, "lon_max": 103.5},
-    "Lampung": {"lat_min": -6.5, "lat_max": -3.5, "lon_min": 103.5, "lon_max": 106.5},
-    "Kepulauan Bangka Belitung": {"lat_min": -4.0, "lat_max": -1.0, "lon_min": 105.0, "lon_max": 109.0},
-    "Kepulauan Riau": {"lat_min": -1.0, "lat_max": 5.0, "lon_min": 103.0, "lon_max": 110.0},
-    "DKI Jakarta": {"lat_min": -6.4, "lat_max": -5.9, "lon_min": 106.6, "lon_max": 107.1},
-    "Jawa Barat": {"lat_min": -7.8, "lat_max": -5.9, "lon_min": 106.3, "lon_max": 108.9},
-    "Jawa Tengah": {"lat_min": -8.2, "lat_max": -5.9, "lon_min": 108.8, "lon_max": 111.5},
-    "DI Yogyakarta": {"lat_min": -8.2, "lat_max": -7.4, "lon_min": 110.0, "lon_max": 110.7},
-    "Jawa Timur": {"lat_min": -8.8, "lat_max": -5.8, "lon_min": 111.0, "lon_max": 114.7},
-    "Banten": {"lat_min": -7.2, "lat_max": -5.8, "lon_min": 105.0, "lon_max": 106.7},
-    "Bali": {"lat_min": -8.9, "lat_max": -8.0, "lon_min": 114.4, "lon_max": 115.8},
-    "Nusa Tenggara Barat": {"lat_min": -9.2, "lat_max": -8.0, "lon_min": 115.5, "lon_max": 119.5},
-    "Nusa Tenggara Timur": {"lat_min": -11.0, "lat_max": -8.0, "lon_min": 118.0, "lon_max": 125.5},
-    "Kalimantan Barat": {"lat_min": -3.5, "lat_max": 2.5, "lon_min": 108.0, "lon_max": 115.0},
-    "Kalimantan Tengah": {"lat_min": -4.0, "lat_max": 0.5, "lon_min": 110.5, "lon_max": 116.5},
-    "Kalimantan Selatan": {"lat_min": -5.0, "lat_max": -1.5, "lon_min": 114.0, "lon_max": 117.0},
-    "Kalimantan Timur": {"lat_min": -2.5, "lat_max": 4.5, "lon_min": 113.5, "lon_max": 119.5},
-    "Kalimantan Utara": {"lat_min": 1.5, "lat_max": 4.5, "lon_min": 115.0, "lon_max": 118.5},
-    "Sulawesi Utara": {"lat_min": -0.5, "lat_max": 4.5, "lon_min": 122.5, "lon_max": 127.5},
-    "Sulawesi Tengah": {"lat_min": -3.5, "lat_max": 1.0, "lon_min": 119.5, "lon_max": 124.5},
-    "Sulawesi Selatan": {"lat_min": -7.5, "lat_max": -1.5, "lon_min": 118.5, "lon_max": 121.5},
-    "Sulawesi Tenggara": {"lat_min": -6.5, "lat_max": -2.5, "lon_min": 120.5, "lon_max": 124.5},
-    "Gorontalo": {"lat_min": -0.5, "lat_max": 1.5, "lon_min": 121.5, "lon_max": 123.5},
-    "Sulawesi Barat": {"lat_min": -3.5, "lat_max": 0.0, "lon_min": 118.5, "lon_max": 120.0},
-    "Maluku": {"lat_min": -9.0, "lat_max": 1.5, "lon_min": 124.0, "lon_max": 135.5},
-    "Maluku Utara": {"lat_min": -2.0, "lat_max": 3.5, "lon_min": 124.0, "lon_max": 129.5},
-    "Papua Barat": {"lat_min": -5.0, "lat_max": 0.5, "lon_min": 129.0, "lon_max": 135.5},
-    "Papua": {"lat_min": -9.5, "lat_max": -0.5, "lon_min": 134.0, "lon_max": 141.5},
-    "Papua Selatan": {"lat_min": -9.0, "lat_max": -5.0, "lon_min": 136.0, "lon_max": 141.0},
-    "Papua Tengah": {"lat_min": -6.0, "lat_max": -2.5, "lon_min": 136.0, "lon_max": 140.5},
-    "Papua Pegunungan": {"lat_min": -5.5, "lat_max": -3.0, "lon_min": 137.0, "lon_max": 141.5},
-    "Papua Barat Daya": {"lat_min": -4.5, "lat_max": -0.5, "lon_min": 129.5, "lon_max": 133.5},
+TARGET_POINTS = 600
+MIN_MEAN_DISCHARGE = 10.0
+MIN_PER_PROVINCE = 2
+
+JAVA_BONUS_POINTS = 100
+SULAWESI_BONUS_POINTS = 60
+SUMATRA_BONUS_POINTS = 40
+
+JAVA_PROVINCES = {
+    "Banten",
+    "Jakarta Special Capital Region",
+    "West Java",
+    "Central Java",
+    "Special Region of Yogyakarta",
+    "East Java",
+}
+
+SULAWESI_PROVINCES = {
+    "North Sulawesi",
+    "Gorontalo",
+    "Central Sulawesi",
+    "West Sulawesi",
+    "South Sulawesi",
+    "Southeast Sulawesi",
+}
+
+PRIORITY_SUMATRA_PROVINCES = {
+    "North Sumatra",
+    "West Sumatra",
 }
 
 
-def get_province(lat: float, lon: float) -> str:
-    """Get province name for a lat/lon coordinate."""
-    for name, bounds in PROVINCES.items():
-        if (bounds["lat_min"] <= lat <= bounds["lat_max"] and
-            bounds["lon_min"] <= lon <= bounds["lon_max"]):
-            return name
-    return "Indonesia"
+def read_province_name(feature: dict) -> str:
+    props = feature.get("properties", {})
+    return (
+        props.get("shapeName")
+        or props.get("name")
+        or props.get("NAME_1")
+        or "Unknown"
+    )
+
+
+def load_province_geometries(path: Path):
+    geojson = json.load(open(path, "r"))
+    provinces = []
+    for feature in geojson["features"]:
+        name = read_province_name(feature)
+        geom = shape(feature["geometry"])
+        provinces.append(
+            {
+                "name": name,
+                "geometry": geom,
+                "prepared": prep(geom),
+                "bounds": geom.bounds,  # minx, miny, maxx, maxy
+            }
+        )
+    return provinces
+
+
+def locate_province(lat: float, lon: float, province_geometries: list[dict]) -> str | None:
+    point = Point(lon, lat)
+    for province in province_geometries:
+        minx, miny, maxx, maxy = province["bounds"]
+        if lon < minx or lon > maxx or lat < miny or lat > maxy:
+            continue
+        if province["prepared"].contains(point) or province["geometry"].touches(point):
+            return str(province["name"])
+    return None
+
+
+def add_points_with_thinning(
+    pool: list[dict],
+    max_add: int,
+    cell_size: float,
+    selected: list[dict],
+    selected_cells: set[tuple[int, int]],
+    selected_points: set[tuple[int, int]],
+) -> int:
+    occupied = {(round(point["lat"] / cell_size), round(point["lon"] / cell_size)) for point in selected}
+    added = 0
+    for candidate in pool:
+        point_key = (candidate["lat_idx"], candidate["lon_idx"])
+        if point_key in selected_points:
+            continue
+
+        cell_key = (round(candidate["lat"] / cell_size), round(candidate["lon"] / cell_size))
+        if cell_key in occupied or cell_key in selected_cells:
+            continue
+
+        selected.append(candidate)
+        selected_points.add(point_key)
+        selected_cells.add(cell_key)
+        occupied.add(cell_key)
+        added += 1
+        if added >= max_add:
+            break
+
+    return added
 
 
 def main():
@@ -93,6 +144,9 @@ def main():
     # Ensure output directories
     for subdir in ["grids", "series", "legends", "tiles"]:
         (OUTPUT_DIR / subdir).mkdir(parents=True, exist_ok=True)
+
+    province_geometries = load_province_geometries(BOUNDARY_FILE)
+    province_names = [province["name"] for province in province_geometries]
     
     # ========================
     # 1. Generate Metadata
@@ -121,16 +175,16 @@ def main():
     # 2. Generate Layers
     # ========================
     print("\n2. Generating layers.json...")
-    layers = []
+    layers = {}
     for i, date_str in enumerate(dates):
-        layers.append({
+        layers[date_str] = {
             "id": f"date_{date_str}",
             "date": date_str,
             "label": pd.to_datetime(date_str).strftime("%b %d"),
             "index": i
-        })
+        }
     with open(OUTPUT_DIR / "layers.json", "w") as f:
-        json.dump({"layers": layers}, f, indent=2)
+        json.dump({"layers": layers, "defaultDate": dates[-1]}, f, indent=2)
     print("  ✓ layers.json")
     
     # ========================
@@ -140,8 +194,8 @@ def main():
     for i, date_str in enumerate(dates):
         data = ds.dis24.isel(valid_time=i).values
         
-        # Downsample for smaller files (every 2nd cell)
-        step = 2
+        # Keep native 0.05° resolution (same as source NC and v3 behavior)
+        step = 1
         grid_data = {
             "lats": [round(float(lat), 4) for lat in lats[::step]],
             "lons": [round(float(lon), 4) for lon in lons[::step]],
@@ -158,22 +212,30 @@ def main():
     # ========================
     # 4. Select Monitoring Points
     # ========================
-    print("\n4. Selecting 500 monitoring points...")
+    print("\n4. Selecting monitoring points...")
     mean_discharge = ds.dis24.mean(dim="valid_time").values
     
     candidates = []
     for lat_idx, lat in enumerate(lats):
         for lon_idx, lon in enumerate(lons):
             val = mean_discharge[lat_idx, lon_idx]
-            if not np.isnan(val) and val > 30:  # Min threshold
-                candidates.append({
+            if np.isnan(val) or float(val) <= MIN_MEAN_DISCHARGE:
+                continue
+
+            province_name = locate_province(float(lat), float(lon), province_geometries)
+            if province_name is None:
+                continue
+
+            candidates.append(
+                {
                     "lat_idx": lat_idx,
                     "lon_idx": lon_idx,
                     "lat": float(lat),
                     "lon": float(lon),
                     "discharge": float(val),
-                    "province": get_province(float(lat), float(lon))
-                })
+                    "province": province_name,
+                }
+            )
     
     print(f"  Found {len(candidates)} candidate cells")
     
@@ -183,35 +245,75 @@ def main():
     # Select points ensuring all provinces
     selected = []
     provinces_covered = set()
-    cell_size = 0.3
+    cell_size = 0.25
     occupied_cells = set()
+    selected_points = set()
     
-    # First pass: ensure each province has at least 2 points
-    for prov in PROVINCES.keys():
+    # First pass: ensure each province has at least MIN_PER_PROVINCE points
+    for prov in province_names:
         prov_candidates = [c for c in candidates if c["province"] == prov]
         added = 0
         for c in prov_candidates:
             cell_key = (round(c["lat"] / cell_size), round(c["lon"] / cell_size))
-            if cell_key not in occupied_cells:
+            point_key = (c["lat_idx"], c["lon_idx"])
+            if cell_key not in occupied_cells and point_key not in selected_points:
                 selected.append(c)
                 occupied_cells.add(cell_key)
+                selected_points.add(point_key)
                 provinces_covered.add(prov)
                 added += 1
-                if added >= 2:
+                if added >= MIN_PER_PROVINCE:
                     break
     
     print(f"  After province coverage: {len(selected)} points, {len(provinces_covered)} provinces")
-    
-    # Second pass: fill to 500 with spatial thinning
+
+    # Priority boosts requested by user
+    java_pool = [c for c in candidates if c["province"] in JAVA_PROVINCES]
+    sulawesi_pool = [c for c in candidates if c["province"] in SULAWESI_PROVINCES]
+    sumatra_pool = [c for c in candidates if c["province"] in PRIORITY_SUMATRA_PROVINCES]
+
+    added_java = add_points_with_thinning(
+        java_pool,
+        JAVA_BONUS_POINTS,
+        0.12,
+        selected,
+        occupied_cells,
+        selected_points,
+    )
+    print(f"  Added Java bonus points: {added_java}")
+
+    added_sulawesi = add_points_with_thinning(
+        sulawesi_pool,
+        SULAWESI_BONUS_POINTS,
+        0.16,
+        selected,
+        occupied_cells,
+        selected_points,
+    )
+    print(f"  Added Sulawesi bonus points: {added_sulawesi}")
+
+    added_sumatra = add_points_with_thinning(
+        sumatra_pool,
+        SUMATRA_BONUS_POINTS,
+        0.16,
+        selected,
+        occupied_cells,
+        selected_points,
+    )
+    print(f"  Added North/West Sumatra bonus points: {added_sumatra}")
+
+    # Final pass: fill to target
     for c in candidates:
-        if len(selected) >= 500:
+        if len(selected) >= TARGET_POINTS:
             break
         cell_key = (round(c["lat"] / cell_size), round(c["lon"] / cell_size))
-        if cell_key not in occupied_cells:
+        point_key = (c["lat_idx"], c["lon_idx"])
+        if cell_key not in occupied_cells and point_key not in selected_points:
             selected.append(c)
             occupied_cells.add(cell_key)
+            selected_points.add(point_key)
             provinces_covered.add(c["province"])
-    
+
     print(f"  Final: {len(selected)} points, {len(provinces_covered)} provinces")
     
     # ========================

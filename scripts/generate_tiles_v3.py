@@ -29,7 +29,7 @@ BOUNDARY_FILE = REPO_ROOT / "public" / "data" / "latest" / "boundaries" / "provi
 
 NODATA_VALUE = -9999.0
 TILE_SIZE = 256
-ZOOM_LEVELS = [5, 6, 7]
+ZOOM_LEVELS = [4, 5, 6, 7, 8]
 BOUNDS = {"west": 94.0, "south": -12.0, "east": 145.0, "north": 8.0}
 
 
@@ -253,10 +253,10 @@ def main():
     print(f"Resolution: {np.median(np.diff(lons)):.4f}° x {abs(np.median(np.diff(lats))):.4f}°")
     print(f"Time steps: {len(times)}")
     
-    # Process last 5 dates for speed
+    # Process all available historical dates
     import pandas as pd
     dates = [pd.Timestamp(t).strftime("%Y-%m-%d") for t in times]
-    dates_to_process = dates[-5:]  # Last 5 dates
+    dates_to_process = dates
     
     print(f"\nProcessing {len(dates_to_process)} dates: {dates_to_process[0]} to {dates_to_process[-1]}")
     print()
