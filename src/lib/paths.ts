@@ -23,5 +23,5 @@ export const DATA_PATHS = {
   pointSeries: (pointId: string) => resolveBasePath(`data/latest/series/${pointId}.json`),
   grid: (date: string) => resolveBasePath(`data/latest/grids/${date}.json`),
   legend: (date: string) => resolveBasePath(`data/latest/legends/${date}.json`),
-  tiles: (date: string) => resolveBasePath(`data/latest/tiles/${date}/{z}/{x}/{y}.png`),
+  tiles: (date: string) => resolveBasePath(`data/latest/tiles/${date}/control/{z}/{x}/{y}.png`),
 };
