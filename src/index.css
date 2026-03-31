@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Public+Sans:wght@400;500;600;700&display=swap');
+
+:root {
+  color-scheme: light;
+  font-family: 'Public Sans', sans-serif;
+  background: #f2f4f7;
+  color: #13263f;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  --header-height: 76px;
+  --panel-radius: 20px;
+  --panel-shadow: 0 24px 48px rgba(19, 38, 63, 0.14);
+  --panel-bg: rgba(251, 252, 253, 0.94);
+  --panel-border: #d7dee8;
+  --panel-border-strong: #b8c4d4;
+  --text-primary: #13263f;
+  --text-secondary: #4b617d;
+  --text-muted: #71839b;
+  --brand-navy: #133b70;
+  --brand-teal: #256f86;
+  --brand-red: #c7333a;
+  --brand-green: #3a9950;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  margin: 0;
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  background: #f2f4f7;
+  color: var(--text-primary);
+}
+
+button,
+input,
+select {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+a {
+  color: inherit;
+}
+
+.leaflet-container {
+  height: 100%;
+  width: 100%;
+  background: #d8e1ea;
+  font-family: 'Public Sans', sans-serif;
+}
+
+.leaflet-control-attribution {
+  font-size: 10px;
+}
+
+.leaflet-tooltip.point-tooltip {
+  border: 1px solid rgba(19, 38, 63, 0.14);
+  border-radius: 10px;
+  box-shadow: 0 12px 24px rgba(19, 38, 63, 0.12);
+  color: #13263f;
+  padding: 8px 10px;
+}

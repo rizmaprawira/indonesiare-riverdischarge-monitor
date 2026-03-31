@@ -1,0 +1,50 @@
+{
+  "mode": "historical",
+  "dataSource": {
+    "type": "local",
+    "file": "data_19-28march2026.nc",
+    "variable": "dis24",
+    "description": "Mean discharge in the last 24 hours"
+  },
+  "historical": {
+    "lagDays": 3,
+    "rangeDays": 10,
+    "dateFormat": "YYYY-MM-DD"
+  },
+  "indonesia": {
+    "bounds": {
+      "north": 8,
+      "south": -12,
+      "west": 94,
+      "east": 142
+    },
+    "boundarySource": {
+      "service": "geoBoundaries",
+      "countryCode": "IDN",
+      "adm0": "ADM0",
+      "adm1": "ADM1"
+    }
+  },
+  "tiles": {
+    "zoomLevels": [4, 5, 6, 7, 8],
+    "tileSize": 256,
+    "format": "png"
+  },
+  "points": {
+    "maxCount": 500,
+    "minDischargeThreshold": 50,
+    "thinningCellSizeDeg": 0.3,
+    "ensureAllProvinces": true,
+    "minPointsPerProvince": 1
+  },
+  "outputs": {
+    "publicDir": "public/data/latest",
+    "cacheDir": "scripts/cache",
+    "workDir": "scripts/workdir",
+    "tilesDir": "tiles",
+    "gridsDir": "grids",
+    "seriesDir": "series",
+    "legendsDir": "legends",
+    "boundariesDir": "boundaries"
+  }
+}

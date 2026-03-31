@@ -1,0 +1,139 @@
+.panel,
+.panelOpen {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  bottom: 18px;
+  z-index: 620;
+  width: min(420px, calc(100vw - 36px));
+  transform: translateX(calc(100% + 24px));
+  transition: transform 220ms ease;
+}
+
+.panelOpen {
+  transform: translateX(0);
+}
+
+.inner {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: auto;
+  padding: 18px;
+  border-radius: 24px;
+  border: 1px solid rgba(19, 38, 63, 0.1);
+  background: rgba(251, 252, 253, 0.94);
+  box-shadow: var(--panel-shadow);
+  backdrop-filter: blur(18px);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: flex-start;
+}
+
+.eyebrow {
+  display: inline-flex;
+  margin-bottom: 4px;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--brand-red);
+}
+
+.title {
+  margin: 0;
+  font-size: 22px;
+}
+
+.subtitle {
+  margin: 6px 0 0;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.closeButton,
+.downloadButton {
+  border: 0;
+  border-radius: 999px;
+  padding: 10px 14px;
+  font-weight: 700;
+}
+
+.closeButton {
+  background: rgba(19, 59, 112, 0.08);
+  color: var(--brand-navy);
+}
+
+.downloadButton {
+  margin-top: 18px;
+  background: linear-gradient(135deg, #133b70 0%, #215398 100%);
+  color: white;
+}
+
+.placeholder,
+.errorState p {
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.errorState {
+  margin-top: 20px;
+  padding: 16px;
+  border-radius: 18px;
+  background: rgba(199, 51, 58, 0.08);
+  color: #992327;
+}
+
+.metaGrid,
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.metaCard,
+.stat {
+  padding: 14px;
+  border-radius: 18px;
+  border: 1px solid rgba(19, 38, 63, 0.08);
+  background: rgba(255, 255, 255, 0.9);
+}
+
+.metaLabel,
+.stat span {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--text-muted);
+}
+
+.chartBlock {
+  margin-top: 18px;
+  padding: 12px;
+  border-radius: 18px;
+  border: 1px solid rgba(19, 38, 63, 0.08);
+  background: rgba(255, 255, 255, 0.92);
+}
+
+@media (max-width: 960px) {
+  .panel,
+  .panelOpen {
+    top: auto;
+    left: 12px;
+    right: 12px;
+    bottom: 12px;
+    width: auto;
+    max-height: 68%;
+    transform: translateY(calc(100% + 24px));
+  }
+
+  .panelOpen {
+    transform: translateY(0);
+  }
+}

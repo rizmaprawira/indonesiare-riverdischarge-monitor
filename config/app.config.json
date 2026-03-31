@@ -1,0 +1,46 @@
+{
+  "siteName": "Indonesia River Discharge Monitoring",
+  "organization": "Reasuransi Indonesia Utama (IndonesiaRe)",
+  "department": "Industry Research",
+  "version": "4.0.0",
+  "indonesiaBounds": {
+    "north": 8,
+    "south": -12,
+    "west": 94,
+    "east": 142
+  },
+  "mapDefaults": {
+    "center": [-2.75, 118.2],
+    "zoom": 5.2,
+    "minZoom": 4,
+    "maxZoom": 8,
+    "maxBoundsViscosity": 1
+  },
+  "basemaps": [
+    {
+      "id": "carto-light",
+      "name": "Light",
+      "url": "https://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}{r}.png",
+      "attribution": "&copy; OpenStreetMap contributors &copy; CARTO",
+      "default": true
+    },
+    {
+      "id": "carto-dark",
+      "name": "Dark",
+      "url": "https://{s}.basemaps.cartocdn.com/dark_nolabels/{z}/{x}/{y}{r}.png",
+      "attribution": "&copy; OpenStreetMap contributors &copy; CARTO"
+    },
+    {
+      "id": "esri-world",
+      "name": "Imagery",
+      "url": "https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",
+      "attribution": "Tiles &copy; Esri"
+    }
+  ],
+  "defaultDate": "2026-03-29",
+  "defaultOpacity": 0.78,
+  "staleAfterHours": 72,
+  "topPointsCount": 12,
+  "summaryPanelWidth": 360,
+  "detailPanelWidth": 420
+}

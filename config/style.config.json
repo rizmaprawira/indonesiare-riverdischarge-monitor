@@ -1,0 +1,64 @@
+{
+  "colors": {
+    "brand": {
+      "navy": "#133B70",
+      "teal": "#256F86",
+      "red": "#C7333A",
+      "green": "#3A9950",
+      "sand": "#D9D2C3"
+    },
+    "surface": {
+      "app": "#F2F4F7",
+      "panel": "#FBFCFD",
+      "panelElevated": "#FFFFFF",
+      "mapChrome": "rgba(248, 250, 252, 0.92)",
+      "border": "#D7DEE8",
+      "borderStrong": "#B8C4D4"
+    },
+    "text": {
+      "primary": "#13263F",
+      "secondary": "#4B617D",
+      "muted": "#71839B",
+      "inverse": "#F7FAFC"
+    },
+    "status": {
+      "success": "#2F855A",
+      "warning": "#B7791F",
+      "error": "#C53030",
+      "info": "#2B6CB0"
+    }
+  },
+  "typography": {
+    "uiFontFamily": "'Public Sans', sans-serif",
+    "monoFontFamily": "'IBM Plex Mono', monospace"
+  },
+  "dischargeColorRamp": {
+    "scale": "log",
+    "units": "m3/s",
+    "stops": [
+      { "value": 1, "color": "#F6F9D6", "label": "1" },
+      { "value": 10, "color": "#D5EAB5", "label": "10" },
+      { "value": 25, "color": "#A8D6A7", "label": "25" },
+      { "value": 50, "color": "#6FB7AE", "label": "50" },
+      { "value": 100, "color": "#3E91B5", "label": "100" },
+      { "value": 250, "color": "#2A6EAA", "label": "250" },
+      { "value": 500, "color": "#215398", "label": "500" },
+      { "value": 1000, "color": "#1D3E7B", "label": "1000" },
+      { "value": 2500, "color": "#582F7A", "label": "2500" },
+      { "value": 5000, "color": "#8B2D63", "label": "5000" },
+      { "value": 10000, "color": "#B7373B", "label": "10000" }
+    ],
+    "noDataColor": "transparent"
+  },
+  "markers": {
+    "radius": 5,
+    "stroke": "#F8FAFC",
+    "fill": "#133B70",
+    "selected": "#C7333A"
+  },
+  "layout": {
+    "headerHeight": 76,
+    "panelRadius": 20,
+    "shadow": "0 24px 48px rgba(19, 38, 63, 0.14)"
+  }
+}
