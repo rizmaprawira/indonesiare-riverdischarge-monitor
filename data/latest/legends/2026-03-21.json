@@ -1,0 +1,36 @@
+{
+  "title": "River Discharge (m\u00b3/s)",
+  "date": "2026-03-21",
+  "stops": [
+    {
+      "value": 10,
+      "color": "#ffffb2",
+      "label": "<10"
+    },
+    {
+      "value": 100,
+      "color": "#fed976",
+      "label": "100"
+    },
+    {
+      "value": 500,
+      "color": "#feb24c",
+      "label": "500"
+    },
+    {
+      "value": 1000,
+      "color": "#fd8d3c",
+      "label": "1000"
+    },
+    {
+      "value": 2500,
+      "color": "#f03b20",
+      "label": "2500"
+    },
+    {
+      "value": 5000,
+      "color": "#bd0026",
+      "label": ">5000"
+    }
+  ]
+}
