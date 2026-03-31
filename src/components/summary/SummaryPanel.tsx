@@ -124,7 +124,7 @@ export function SummaryPanel({
         ) : deferredQuery ? (
           <p className={styles.helper}>No matching monitoring point.</p>
         ) : (
-          <p className={styles.helper}>Type a monitoring point id such as `IDN_...`.</p>
+          <p className={styles.helper}>Type a monitoring point id such as `pt_0001`.</p>
         )}
       </div>
 

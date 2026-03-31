@@ -2,12 +2,12 @@
 """
 Fast tile generation for Indonesia River Discharge Monitoring v4.
 Uses vectorized numpy operations for speed.
+Color ramp matches v3 (YlGnBu style - green to blue to purple).
 """
 
 import json
 import math
 from pathlib import Path
-from concurrent.futures import ThreadPoolExecutor, as_completed
 import numpy as np
 
 try:
@@ -32,14 +32,19 @@ PROJECT_ROOT = Path(__file__).parent.parent
 NC_FILE = PROJECT_ROOT / "data_19-28march2026.nc"
 OUTPUT_DIR = PROJECT_ROOT / "public" / "data" / "latest" / "tiles"
 
-# Color stops for discharge visualization (same as v3)
+# Color stops matching v3 (green-blue-purple ramp)
 COLOR_STOPS = [
-    (10, (255, 255, 178)),      # Light yellow
-    (100, (254, 217, 118)),     # Yellow
-    (500, (254, 178, 76)),      # Orange-yellow
-    (1000, (253, 141, 60)),     # Orange
-    (2500, (240, 59, 32)),      # Red-orange
-    (5000, (189, 0, 38)),       # Dark red
+    (1, (246, 249, 214)),      # #F6F9D6 - pale yellow-green
+    (10, (213, 234, 181)),     # #D5EAB5 - light green
+    (25, (168, 214, 167)),     # #A8D6A7 - green
+    (50, (111, 183, 174)),     # #6FB7AE - teal
+    (100, (62, 145, 181)),     # #3E91B5 - light blue
+    (250, (42, 110, 170)),     # #2A6EAA - blue
+    (500, (33, 83, 152)),      # #215398 - dark blue
+    (1000, (29, 62, 123)),     # #1D3E7B - navy
+    (2500, (88, 47, 122)),     # #582F7A - purple
+    (5000, (139, 45, 99)),     # #8B2D63 - magenta
+    (10000, (183, 55, 59)),    # #B7373B - red
 ]
 
 

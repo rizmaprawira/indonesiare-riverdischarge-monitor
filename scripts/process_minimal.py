@@ -215,17 +215,25 @@ def main():
     print(f"  Final: {len(selected)} points, {len(provinces_covered)} provinces")
     
     # ========================
-    # 5. Generate Points GeoJSON
+    # 5. Generate Points GeoJSON (with values per date)
     # ========================
     print("\n5. Generating points.geojson...")
     features = []
     for idx, pt in enumerate(selected):
+        # Get discharge values for each date
+        values = {}
+        for t, date_str in enumerate(dates):
+            val = ds.dis24.isel(valid_time=t).values[pt["lat_idx"], pt["lon_idx"]]
+            values[date_str] = round(float(val), 2) if not np.isnan(val) else None
+        
         features.append({
             "type": "Feature",
             "properties": {
                 "id": f"pt_{idx:04d}",
                 "province": pt["province"],
-                "meanDischarge": round(pt["discharge"], 2)
+                "label": pt["province"],
+                "meanDischarge": round(pt["discharge"], 2),
+                "values": values
             },
             "geometry": {
                 "type": "Point",
@@ -301,17 +309,22 @@ def main():
     print(f"  ✓ rankings.json (top 50)")
     
     # ========================
-    # 8. Generate Legends
+    # 8. Generate Legends (matching v3 YlGnBu color scheme)
     # ========================
     print("\n8. Generating legend files...")
     
     legend_stops = [
-        {"value": 10, "color": "#ffffb2", "label": "<10"},
-        {"value": 100, "color": "#fed976", "label": "100"},
-        {"value": 500, "color": "#feb24c", "label": "500"},
-        {"value": 1000, "color": "#fd8d3c", "label": "1000"},
-        {"value": 2500, "color": "#f03b20", "label": "2500"},
-        {"value": 5000, "color": "#bd0026", "label": ">5000"}
+        {"value": 1, "color": "#F6F9D6", "label": "1"},
+        {"value": 10, "color": "#D5EAB5", "label": "10"},
+        {"value": 25, "color": "#A8D6A7", "label": "25"},
+        {"value": 50, "color": "#6FB7AE", "label": "50"},
+        {"value": 100, "color": "#3E91B5", "label": "100"},
+        {"value": 250, "color": "#2A6EAA", "label": "250"},
+        {"value": 500, "color": "#215398", "label": "500"},
+        {"value": 1000, "color": "#1D3E7B", "label": "1000"},
+        {"value": 2500, "color": "#582F7A", "label": "2500"},
+        {"value": 5000, "color": "#8B2D63", "label": "5000"},
+        {"value": 10000, "color": "#B7373B", "label": ">10000"}
     ]
     
     for date_str in dates:

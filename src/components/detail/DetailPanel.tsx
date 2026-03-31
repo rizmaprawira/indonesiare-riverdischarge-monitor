@@ -50,7 +50,7 @@ export function DetailPanel({ point, metadata, onClose }: DetailPanelProps) {
               <div className={styles.metaCard}>
                 <span className={styles.metaLabel}>Coordinates</span>
                 <strong>
-                  {point.properties?.lat?.toFixed(2)}, {point.properties?.lon?.toFixed(2)}
+                  {point.geometry.coordinates[1].toFixed(4)}°, {point.geometry.coordinates[0].toFixed(4)}°
                 </strong>
               </div>
               <div className={styles.metaCard}>
