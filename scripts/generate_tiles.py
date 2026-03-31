@@ -29,7 +29,7 @@ except ImportError:
     exit(1)
 
 PROJECT_ROOT = Path(__file__).parent.parent
-NC_FILE = PROJECT_ROOT / "data_19-28march2026.nc"
+NC_FILE = PROJECT_ROOT / "data_20-29march2026.nc"
 OUTPUT_DIR = PROJECT_ROOT / "public" / "data" / "latest" / "tiles"
 
 # Color stops matching v3 (green-blue-purple ramp)

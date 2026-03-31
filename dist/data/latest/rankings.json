@@ -2,6 +2,357 @@
   "date": "2026-03-29",
   "items": [
     {
+      "pointId": "pt_0047",
+      "province": "Papua",
+      "discharge": 15516.75,
+      "coordinates": [
+        137.8750000000003,
+        -1.5249999999999813
+      ]
+    },
+    {
+      "pointId": "pt_0049",
+      "province": "Papua",
+      "discharge": 15465.44,
+      "coordinates": [
+        137.8250000000003,
+        -1.6249999999999813
+      ]
+    },
+    {
+      "pointId": "pt_0048",
+      "province": "Papua",
+      "discharge": 15451.47,
+      "coordinates": [
+        137.8250000000003,
+        -1.6749999999999814
+      ]
+    },
+    {
+      "pointId": "pt_0050",
+      "province": "Papua",
+      "discharge": 15410.16,
+      "coordinates": [
+        137.8750000000003,
+        -1.7749999999999815
+      ]
+    },
+    {
+      "pointId": "pt_0051",
+      "province": "Papua",
+      "discharge": 15289.22,
+      "coordinates": [
+        137.8250000000003,
+        -1.9749999999999817
+      ]
+    },
+    {
+      "pointId": "pt_0052",
+      "province": "Papua",
+      "discharge": 15122.91,
+      "coordinates": [
+        137.8750000000003,
+        -2.1249999999999813
+      ]
+    },
+    {
+      "pointId": "pt_0053",
+      "province": "Papua",
+      "discharge": 15040.25,
+      "coordinates": [
+        137.92500000000032,
+        -2.274999999999981
+      ]
+    },
+    {
+      "pointId": "pt_0054",
+      "province": "Papua",
+      "discharge": 14894.25,
+      "coordinates": [
+        138.17500000000038,
+        -2.3749999999999805
+      ]
+    },
+    {
+      "pointId": "pt_0055",
+      "province": "Papua",
+      "discharge": 14816.41,
+      "coordinates": [
+        138.32500000000041,
+        -2.5749999999999797
+      ]
+    },
+    {
+      "pointId": "pt_0056",
+      "province": "Papua",
+      "discharge": 14444.69,
+      "coordinates": [
+        138.42500000000044,
+        -2.8749999999999787
+      ]
+    },
+    {
+      "pointId": "pt_0057",
+      "province": "Indonesia",
+      "discharge": 9986.38,
+      "coordinates": [
+        144.52500000000182,
+        -3.874999999999975
+      ]
+    },
+    {
+      "pointId": "pt_0058",
+      "province": "Indonesia",
+      "discharge": 9937.25,
+      "coordinates": [
+        144.4250000000018,
+        -3.874999999999975
+      ]
+    },
+    {
+      "pointId": "pt_0062",
+      "province": "Papua",
+      "discharge": 9750.25,
+      "coordinates": [
+        138.47500000000045,
+        -2.9249999999999785
+      ]
+    },
+    {
+      "pointId": "pt_0059",
+      "province": "Indonesia",
+      "discharge": 9657.03,
+      "coordinates": [
+        144.22500000000176,
+        -4.074999999999974
+      ]
+    },
+    {
+      "pointId": "pt_0060",
+      "province": "Indonesia",
+      "discharge": 9624.44,
+      "coordinates": [
+        144.12500000000173,
+        -4.074999999999974
+      ]
+    },
+    {
+      "pointId": "pt_0061",
+      "province": "Indonesia",
+      "discharge": 8822.03,
+      "coordinates": [
+        143.82500000000167,
+        -4.124999999999974
+      ]
+    },
+    {
+      "pointId": "pt_0063",
+      "province": "Papua",
+      "discharge": 8544.81,
+      "coordinates": [
+        138.57500000000047,
+        -3.1749999999999776
+      ]
+    },
+    {
+      "pointId": "pt_0064",
+      "province": "Papua",
+      "discharge": 7974.16,
+      "coordinates": [
+        138.77500000000052,
+        -3.1749999999999776
+      ]
+    },
+    {
+      "pointId": "pt_0066",
+      "province": "Papua",
+      "discharge": 7050.16,
+      "coordinates": [
+        139.07500000000059,
+        -3.2749999999999773
+      ]
+    },
+    {
+      "pointId": "pt_0065",
+      "province": "Indonesia",
+      "discharge": 6669.03,
+      "coordinates": [
+        143.5250000000016,
+        -4.224999999999974
+      ]
+    },
+    {
+      "pointId": "pt_0070",
+      "province": "Papua",
+      "discharge": 6525.62,
+      "coordinates": [
+        139.27500000000063,
+        -3.4749999999999766
+      ]
+    },
+    {
+      "pointId": "pt_0071",
+      "province": "Papua",
+      "discharge": 6410.78,
+      "coordinates": [
+        139.37500000000065,
+        -3.4749999999999766
+      ]
+    },
+    {
+      "pointId": "pt_0072",
+      "province": "Papua",
+      "discharge": 6320.22,
+      "coordinates": [
+        139.37500000000065,
+        -3.4249999999999767
+      ]
+    },
+    {
+      "pointId": "pt_0067",
+      "province": "Indonesia",
+      "discharge": 5941.81,
+      "coordinates": [
+        142.42500000000135,
+        -8.274999999999965
+      ]
+    },
+    {
+      "pointId": "pt_0068",
+      "province": "Indonesia",
+      "discharge": 5936.38,
+      "coordinates": [
+        142.37500000000134,
+        -8.224999999999964
+      ]
+    },
+    {
+      "pointId": "pt_0069",
+      "province": "Indonesia",
+      "discharge": 5911.84,
+      "coordinates": [
+        142.32500000000132,
+        -8.174999999999963
+      ]
+    },
+    {
+      "pointId": "pt_0088",
+      "province": "Indonesia",
+      "discharge": 5846.75,
+      "coordinates": [
+        144.975,
+        -7.674999999999962
+      ]
+    },
+    {
+      "pointId": "pt_0073",
+      "province": "Indonesia",
+      "discharge": 5616.16,
+      "coordinates": [
+        143.22500000000153,
+        -4.124999999999974
+      ]
+    },
+    {
+      "pointId": "pt_0074",
+      "province": "Indonesia",
+      "discharge": 5600.0,
+      "coordinates": [
+        142.02500000000126,
+        -8.174999999999963
+      ]
+    },
+    {
+      "pointId": "pt_0075",
+      "province": "Indonesia",
+      "discharge": 5530.12,
+      "coordinates": [
+        141.87500000000122,
+        -7.924999999999961
+      ]
+    },
+    {
+      "pointId": "pt_0077",
+      "province": "Indonesia",
+      "discharge": 5357.53,
+      "coordinates": [
+        141.7250000000012,
+        -7.824999999999961
+      ]
+    },
+    {
+      "pointId": "pt_0076",
+      "province": "Indonesia",
+      "discharge": 5245.59,
+      "coordinates": [
+        142.92500000000146,
+        -4.124999999999974
+      ]
+    },
+    {
+      "pointId": "pt_0079",
+      "province": "Papua",
+      "discharge": 5155.41,
+      "coordinates": [
+        141.42500000000112,
+        -7.624999999999962
+      ]
+    },
+    {
+      "pointId": "pt_0078",
+      "province": "Papua",
+      "discharge": 5149.56,
+      "coordinates": [
+        141.42500000000112,
+        -7.7249999999999615
+      ]
+    },
+    {
+      "pointId": "pt_0092",
+      "province": "Indonesia",
+      "discharge": 5025.28,
+      "coordinates": [
+        144.975,
+        -7.024999999999964
+      ]
+    },
+    {
+      "pointId": "pt_0080",
+      "province": "Indonesia",
+      "discharge": 4788.19,
+      "coordinates": [
+        142.6250000000014,
+        -4.174999999999974
+      ]
+    },
+    {
+      "pointId": "pt_0094",
+      "province": "Indonesia",
+      "discharge": 4769.53,
+      "coordinates": [
+        144.72500000000187,
+        -6.774999999999965
+      ]
+    },
+    {
+      "pointId": "pt_0095",
+      "province": "Indonesia",
+      "discharge": 4702.72,
+      "coordinates": [
+        144.67500000000186,
+        -6.724999999999965
+      ]
+    },
+    {
+      "pointId": "pt_0086",
+      "province": "Papua",
+      "discharge": 4599.59,
+      "coordinates": [
+        139.67500000000072,
+        -3.5249999999999764
+      ]
+    },
+    {
       "pointId": "pt_0035",
       "province": "Kalimantan Timur",
       "discharge": 4420.66,
@@ -20,7 +371,16 @@
       ]
     },
     {
-      "pointId": "pt_0045",
+      "pointId": "pt_0083",
+      "province": "Indonesia",
+      "discharge": 4240.75,
+      "coordinates": [
+        142.32500000000132,
+        -4.3249999999999735
+      ]
+    },
+    {
+      "pointId": "pt_0081",
       "province": "Kalimantan Timur",
       "discharge": 4222.22,
       "coordinates": [
@@ -29,7 +389,25 @@
       ]
     },
     {
-      "pointId": "pt_0046",
+      "pointId": "pt_0096",
+      "province": "Papua",
+      "discharge": 4212.84,
+      "coordinates": [
+        138.12500000000037,
+        -2.9749999999999783
+      ]
+    },
+    {
+      "pointId": "pt_0089",
+      "province": "Papua",
+      "discharge": 4153.62,
+      "coordinates": [
+        139.9750000000008,
+        -3.624999999999976
+      ]
+    },
+    {
+      "pointId": "pt_0082",
       "province": "Kalimantan Timur",
       "discharge": 4062.59,
       "coordinates": [
@@ -38,7 +416,7 @@
       ]
     },
     {
-      "pointId": "pt_0047",
+      "pointId": "pt_0084",
       "province": "Kalimantan Timur",
       "discharge": 3917.16,
       "coordinates": [
@@ -47,7 +425,16 @@
       ]
     },
     {
-      "pointId": "pt_0048",
+      "pointId": "pt_0090",
+      "province": "Papua",
+      "discharge": 3828.06,
+      "coordinates": [
+        140.27500000000086,
+        -3.674999999999976
+      ]
+    },
+    {
+      "pointId": "pt_0085",
       "province": "Kalimantan Timur",
       "discharge": 3736.97,
       "coordinates": [
@@ -56,399 +443,12 @@
       ]
     },
     {
-      "pointId": "pt_0030",
-      "province": "Kalimantan Barat",
-      "discharge": 3152.28,
-      "coordinates": [
-        114.27499999999885,
-        -3.374999999999977
-      ]
-    },
-    {
-      "pointId": "pt_0031",
-      "province": "Kalimantan Barat",
-      "discharge": 3030.66,
-      "coordinates": [
-        114.32499999999885,
-        -3.124999999999978
-      ]
-    },
-    {
-      "pointId": "pt_0014",
-      "province": "Kepulauan Riau",
-      "discharge": 2990.5,
-      "coordinates": [
-        109.07499999999915,
-        -0.17499999999998048
-      ]
-    },
-    {
-      "pointId": "pt_0015",
-      "province": "Kepulauan Riau",
-      "discharge": 2918.81,
-      "coordinates": [
-        109.37499999999913,
-        -0.2749999999999805
-      ]
-    },
-    {
-      "pointId": "pt_0049",
-      "province": "Kepulauan Riau",
-      "discharge": 2816.03,
-      "coordinates": [
-        109.67499999999912,
-        -0.37499999999998046
-      ]
-    },
-    {
-      "pointId": "pt_0050",
-      "province": "Kepulauan Riau",
-      "discharge": 2689.69,
-      "coordinates": [
-        109.9749999999991,
-        -0.12499999999998047
-      ]
-    },
-    {
-      "pointId": "pt_0051",
-      "province": "Kalimantan Barat",
-      "discharge": 2599.34,
-      "coordinates": [
-        110.27499999999908,
-        -0.07499999999998047
-      ]
-    },
-    {
-      "pointId": "pt_0052",
-      "province": "Kalimantan Barat",
-      "discharge": 2488.75,
-      "coordinates": [
-        110.57499999999906,
-        -0.02499999999998047
-      ]
-    },
-    {
-      "pointId": "pt_0056",
-      "province": "Kalimantan Barat",
-      "discharge": 2322.66,
-      "coordinates": [
-        114.47499999999884,
-        -2.9249999999999785
-      ]
-    },
-    {
-      "pointId": "pt_0057",
-      "province": "Kalimantan Barat",
-      "discharge": 2289.94,
-      "coordinates": [
-        114.52499999999884,
-        -2.824999999999979
-      ]
-    },
-    {
-      "pointId": "pt_0053",
-      "province": "Kalimantan Barat",
-      "discharge": 2258.25,
-      "coordinates": [
-        110.87499999999905,
-        0.025000000000019534
-      ]
-    },
-    {
-      "pointId": "pt_0058",
-      "province": "Kalimantan Barat",
-      "discharge": 2213.91,
-      "coordinates": [
-        114.77499999999883,
-        -2.724999999999979
-      ]
-    },
-    {
-      "pointId": "pt_0059",
-      "province": "Kalimantan Barat",
-      "discharge": 2160.16,
-      "coordinates": [
-        114.87499999999882,
-        -2.52499999999998
-      ]
-    },
-    {
-      "pointId": "pt_0054",
-      "province": "Kalimantan Barat",
-      "discharge": 2124.25,
-      "coordinates": [
-        111.17499999999903,
-        0.07500000000001954
-      ]
-    },
-    {
-      "pointId": "pt_0061",
-      "province": "Kalimantan Barat",
-      "discharge": 2044.5,
-      "coordinates": [
-        114.87499999999882,
-        -2.224999999999981
-      ]
-    },
-    {
-      "pointId": "pt_0055",
-      "province": "Kalimantan Barat",
-      "discharge": 1906.56,
-      "coordinates": [
-        111.47499999999901,
-        0.07500000000001954
-      ]
-    },
-    {
-      "pointId": "pt_0064",
-      "province": "Kalimantan Barat",
-      "discharge": 1905.72,
-      "coordinates": [
-        114.87499999999882,
-        -1.9249999999999816
-      ]
-    },
-    {
-      "pointId": "pt_0032",
-      "province": "Kalimantan Tengah",
-      "discharge": 1862.38,
-      "coordinates": [
-        116.47499999999873,
-        -0.32499999999998047
-      ]
-    },
-    {
-      "pointId": "pt_0060",
-      "province": "Kalimantan Timur",
-      "discharge": 1807.69,
-      "coordinates": [
-        117.52499999999867,
-        3.075000000000017
-      ]
-    },
-    {
-      "pointId": "pt_0062",
-      "province": "Kalimantan Timur",
-      "discharge": 1800.34,
-      "coordinates": [
-        117.42499999999868,
-        3.0250000000000172
-      ]
-    },
-    {
-      "pointId": "pt_0066",
-      "province": "Kalimantan Barat",
-      "discharge": 1765.31,
-      "coordinates": [
-        114.82499999999882,
-        -1.6249999999999813
-      ]
-    },
-    {
-      "pointId": "pt_0063",
-      "province": "Kalimantan Timur",
-      "discharge": 1734.03,
-      "coordinates": [
-        117.37499999999868,
-        2.825000000000018
-      ]
-    },
-    {
-      "pointId": "pt_0008",
-      "province": "Jambi",
-      "discharge": 1708.38,
-      "coordinates": [
-        104.97499999999938,
-        -2.52499999999998
-      ]
-    },
-    {
-      "pointId": "pt_0009",
-      "province": "Jambi",
-      "discharge": 1694.53,
-      "coordinates": [
-        104.97499999999938,
-        -2.5749999999999797
-      ]
-    },
-    {
-      "pointId": "pt_0065",
-      "province": "Kalimantan Timur",
-      "discharge": 1684.19,
-      "coordinates": [
-        117.12499999999869,
-        2.7250000000000183
-      ]
-    },
-    {
-      "pointId": "pt_0033",
-      "province": "Kalimantan Tengah",
-      "discharge": 1669.62,
-      "coordinates": [
-        116.22499999999874,
-        -0.37499999999998046
-      ]
-    },
-    {
-      "pointId": "pt_0069",
-      "province": "Jambi",
-      "discharge": 1602.31,
-      "coordinates": [
-        104.87499999999939,
-        -2.8749999999999787
-      ]
-    },
-    {
-      "pointId": "pt_0068",
-      "province": "Kalimantan Barat",
-      "discharge": 1599.78,
-      "coordinates": [
-        114.87499999999882,
-        -1.324999999999981
-      ]
-    },
-    {
-      "pointId": "pt_0067",
-      "province": "Kalimantan Timur",
-      "discharge": 1557.62,
-      "coordinates": [
-        116.82499999999871,
-        2.7250000000000183
-      ]
-    },
-    {
-      "pointId": "pt_0010",
-      "province": "Sumatera Selatan",
-      "discharge": 1529.94,
-      "coordinates": [
-        104.7249999999994,
-        -3.024999999999978
-      ]
-    },
-    {
-      "pointId": "pt_0071",
-      "province": "Kalimantan Barat",
-      "discharge": 1480.06,
-      "coordinates": [
-        114.82499999999882,
-        -1.0249999999999808
-      ]
-    },
-    {
-      "pointId": "pt_0070",
-      "province": "Kalimantan Timur",
-      "discharge": 1447.06,
-      "coordinates": [
-        116.52499999999873,
-        2.6750000000000185
-      ]
-    },
-    {
       "pointId": "pt_0087",
-      "province": "Jambi",
-      "discharge": 1390.03,
+      "province": "Indonesia",
+      "discharge": 3671.09,
       "coordinates": [
-        104.02499999999944,
-        -1.324999999999981
-      ]
-    },
-    {
-      "pointId": "pt_0073",
-      "province": "Kalimantan Barat",
-      "discharge": 1379.62,
-      "coordinates": [
-        111.47499999999901,
-        2.3750000000000195
-      ]
-    },
-    {
-      "pointId": "pt_0092",
-      "province": "Jambi",
-      "discharge": 1366.31,
-      "coordinates": [
-        103.97499999999944,
-        -1.3749999999999811
-      ]
-    },
-    {
-      "pointId": "pt_0072",
-      "province": "Kalimantan Tengah",
-      "discharge": 1340.81,
-      "coordinates": [
-        115.92499999999876,
-        -0.2749999999999805
-      ]
-    },
-    {
-      "pointId": "pt_0074",
-      "province": "Kalimantan Tengah",
-      "discharge": 1289.91,
-      "coordinates": [
-        115.77499999999877,
-        -0.12499999999998047
-      ]
-    },
-    {
-      "pointId": "pt_0075",
-      "province": "Kalimantan Barat",
-      "discharge": 1287.56,
-      "coordinates": [
-        111.774999999999,
-        2.27500000000002
-      ]
-    },
-    {
-      "pointId": "pt_0089",
-      "province": "Jambi",
-      "discharge": 1287.16,
-      "coordinates": [
-        103.67499999999946,
-        -1.5249999999999813
-      ]
-    },
-    {
-      "pointId": "pt_0076",
-      "province": "Kalimantan Barat",
-      "discharge": 1276.81,
-      "coordinates": [
-        111.774999999999,
-        2.22500000000002
-      ]
-    },
-    {
-      "pointId": "pt_0079",
-      "province": "Kalimantan Barat",
-      "discharge": 1237.44,
-      "coordinates": [
-        111.57499999999901,
-        0.17500000000001953
-      ]
-    },
-    {
-      "pointId": "pt_0088",
-      "province": "Jambi",
-      "discharge": 1230.72,
-      "coordinates": [
-        103.47499999999947,
-        -1.4749999999999812
-      ]
-    },
-    {
-      "pointId": "pt_0078",
-      "province": "Kalimantan Tengah",
-      "discharge": 1217.09,
-      "coordinates": [
-        115.62499999999878,
-        -0.07499999999998047
-      ]
-    },
-    {
-      "pointId": "pt_0090",
-      "province": "Jambi",
-      "discharge": 1208.28,
-      "coordinates": [
-        103.32499999999948,
-        -1.5749999999999813
+        142.02500000000126,
+        -4.3249999999999735
       ]
     }
   ]
