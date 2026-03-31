@@ -315,16 +315,16 @@ def main():
     
     legend_stops = [
         {"value": 1, "color": "#F6F9D6", "label": "1"},
+        {"value": 5, "color": "#E5F2C8", "label": "5"},
         {"value": 10, "color": "#D5EAB5", "label": "10"},
         {"value": 25, "color": "#A8D6A7", "label": "25"},
         {"value": 50, "color": "#6FB7AE", "label": "50"},
         {"value": 100, "color": "#3E91B5", "label": "100"},
-        {"value": 250, "color": "#2A6EAA", "label": "250"},
+        {"value": 200, "color": "#327FAF", "label": "200"},
+        {"value": 300, "color": "#2A6EAA", "label": "300"},
+        {"value": 400, "color": "#2461A1", "label": "400"},
         {"value": 500, "color": "#215398", "label": "500"},
-        {"value": 1000, "color": "#1D3E7B", "label": "1000"},
-        {"value": 2500, "color": "#582F7A", "label": "2500"},
-        {"value": 5000, "color": "#8B2D63", "label": "5000"},
-        {"value": 10000, "color": "#B7373B", "label": ">10000"}
+        {"value": 1000, "color": "#1D3E7B", "label": ">1000"}
     ]
     
     for date_str in dates:
