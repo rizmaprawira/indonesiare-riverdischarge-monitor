@@ -52,37 +52,23 @@ The dashboard displays data from the **Copernicus Global Flood Awareness System 
 ## Data Source
 
 ### GloFAS (Global Flood Awareness System)
-- **Provider**: European Commission Copernicus Programme
-- **Data Type**: Hydrological model output (not direct measurements)
-- **Resolution**: ~1 km grid cells across Indonesia
-- **Temporal Coverage**: Daily mean discharge estimates
-- **Variable**: `dis24` - Mean discharge over 24-hour period (m³/s)
+- **Provider**: Copernicus Emergency Management Service - Early Warning Data Store
+- **Data Type**: Hydrological model output LISFLOOD (not direct measurements)
+- **Resolution**: ~0.05 km grid cells across Indonesia
+- **Temporal Coverage**: Daily mean river discharge estimates
+- **Variable**: `dis24` - Mean river discharge over 24-hour period (m³/s)
 
 ### Spatial Coverage
 - **Region**: Full Indonesian archipelago (94°E - 145°E, 12°S - 8°N)
-- **Focus Areas**: Java, Sulawesi, Sumatra (primary hydro-hazard regions)
 - **600 Sampled Points**: Strategically selected to represent major river systems
 
-### Data Updates
-- New data is added approximately **daily**
+### Data Updates (ON PROGRESS)
+- New data is added approximately **daily** with time lag of 2-4 days
 - Historical archive available for trend analysis
 - All dates shown in UTC timezone
 
 ---
 
-## Color Legend
-
-The heatmap uses a logarithmic color scale to represent discharge intensity:
-
-| Color | Discharge Range | Interpretation |
-|-------|-----------------|-----------------|
-| 🟨 Pale Yellow | 1 - 5 m³/s | Low flow |
-| 🟩 Light Green | 5 - 25 m³/s | Moderate flow |
-| 🟦 Cyan | 25 - 100 m³/s | Elevated flow |
-| 🔵 Blue | 100 - 500 m³/s | High flow |
-| 🔷 Dark Blue | > 500 m³/s | Very high flow (flood risk) |
-
----
 
 ## Technical Details
 
@@ -102,7 +88,7 @@ The heatmap uses a logarithmic color scale to represent discharge intensity:
 ### Performance Features
 - **Lazy Loading**: Data loads only when needed
 - **Client-Side Rendering**: All computation happens in your browser
-- **No Backend API**: Purely static files (faster, no server costs)
+- **No Backend API**: Purely static files (faster, no server costs) (API SUPPORT ARE ON PROGRESS)
 - **Tile Caching**: Browser caches map tiles for fast navigation
 
 ---
@@ -113,8 +99,8 @@ The heatmap uses a logarithmic color scale to represent discharge intensity:
 
 ### Known Limitations
 1. **Model Uncertainty**: GloFAS predictions have inherent modeling uncertainty, especially in extreme events
-2. **Resolution Limits**: 1 km grid may smooth local variations
-3. **Data Lag**: Typically 1-2 days behind real-time
+2. **Resolution Limits**: 0.05 km grid may smooth local variations
+3. **Data Lag**: Typically 2-4 days behind real-time
 4. **Coastal Sensitivity**: Model performance degrades in coastal areas with complex hydrology
 5. **Monsoon Bias**: Seasonal prediction skill varies with monsoon patterns
 
@@ -136,16 +122,16 @@ The heatmap uses a logarithmic color scale to represent discharge intensity:
 ## Frequently Asked Questions
 
 ### Q: How often is the data updated?
-**A**: New discharge estimates are added approximately daily. The exact update schedule depends on GloFAS data availability.
+**A**: New discharge estimates are planned to be added approximately daily, though it is still in progress. The exact update schedule depends on GloFAS data availability.
 
 ### Q: Why does my location show no data?
 **A**: Some areas (particularly coastal zones and small islands) may have sparse GloFAS data due to model resolution and data availability.
 
 ### Q: Can I download the raw data?
-**A**: Yes! All underlying data is derived from Copernicus GloFAS. Visit https://cds.climate.copernicus.eu/ to access the full dataset.
+**A**: Yes! All underlying data is derived from Copernicus GloFAS. Visit https://ewds.climate.copernicus.eu/ to access the full dataset.
 
 ### Q: How is the 600-point selection made?
-**A**: Rivers are ranked by historical mean discharge, with bonus weighting for Java, Sulawesi, and Sumatra (primary hydro-hazard regions). At least 2 rivers per province are included.
+**A**: Selected at main river, at least 2 rivers per province are included.
 
 ### Q: What time zone is used?
 **A**: All times are in UTC (Coordinated Universal Time).
@@ -162,30 +148,19 @@ The heatmap uses a logarithmic color scale to represent discharge intensity:
 - Include date, location, and what you expected to see
 
 ### Contact
-- **IndonesiaRe**: [main website]
-- **Questions About GloFAS Data**: https://www.globalfloods.eu/
-
+- Rizma: 12822029@mahasiswa.itb.ac.id
+  
 ---
 
 ## License & Attribution
 
 ### Data Attribution
-- **GloFAS Data**: © European Union, Copernicus Climate Change Service
+- **GloFAS Data**: © Copernicus Emergency Monitoring Service
 - **Base Map**: © OpenStreetMap contributors
 - **Province Boundaries**: Indonesian government spatial data
 
 ### Terms of Use
-This dashboard is provided for informational purposes. While we strive for accuracy, we make no warranties regarding completeness, accuracy, or fitness for specific purposes. Users assume all responsibility for decisions made based on this data.
-
----
-
-## About IndonesiaRe
-
-IndonesiaRe is a leading independent reinsurer providing innovative risk solutions for emerging markets. This monitoring platform supports our mission to understand and mitigate climate and natural disaster risks across Indonesia.
-
-**Website**: [IndonesiaRe.com]  
-**Founded**: [Year]  
-**Headquarters**: Indonesia
+This dashboard is provided for informational purposes and still in developing. While we strive for accuracy, we make no warranties regarding completeness, accuracy, or fitness for specific purposes. Users assume all responsibility for decisions made based on this data.
 
 ---
 
