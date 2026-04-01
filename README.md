@@ -38,7 +38,6 @@ The dashboard displays data from the **Copernicus Global Flood Awareness System 
 ### **Summary Panel**
 - **Top 50 rivers** ranked by current discharge
 - Automatic updates when you change the date
-- Java, Sulawesi, and Sumatra rivers are prioritized
 
 ### **Date Selection**
 - View historical data by selecting different dates
